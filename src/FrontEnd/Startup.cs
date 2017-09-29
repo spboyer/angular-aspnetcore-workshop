@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
-using FrontEnd.Models;
+using FrontEnd.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.Webpack;
@@ -83,6 +83,9 @@ namespace FrontEnd
                   name: "spa-fallback",
                   defaults: new { controller = "Home", action = "Index" });
       });
+
+      // Comment out the following line to avoid resetting the database each time
+      Data.MixSeedData.Seed(app.ApplicationServices);
     }
   }
 }
