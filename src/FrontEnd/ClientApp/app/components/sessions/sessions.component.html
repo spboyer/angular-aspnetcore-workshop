@@ -1,1 +1,11 @@
-<h1>My Sessions</h1>
+<p *ngIf="!sessions"><em>Loading...</em></p>
+
+<div class="agenda">
+  <h1>My Conference 2017</h1>
+
+  <ul>
+    <li *ngFor="let session of sessions">
+      <span>{{session.title}}</span>
+    </li>
+  </ul>
+</div>

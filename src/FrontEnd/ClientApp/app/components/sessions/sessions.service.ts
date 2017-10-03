@@ -19,12 +19,13 @@ export class SessionsService {
 
   getSessions(): Promise<Session[]> {
 
-    return this.http.get(this.serviceUrl)
-      .toPromise()
-      .then(response => response.json().data as Session[])
-      .catch(this.handleError);
+     return this.http.get(this.serviceUrl)
+        .toPromise()
+       .then(response => <Session[]>response.json() )
+       .catch(this.handleError);
   }
 
+  private getData(response: Response) { }
   private handleError(error: any): Promise<any> {
     console.error('An error occurred', error); // for demo purposes only
     return Promise.reject(error.message || error);
