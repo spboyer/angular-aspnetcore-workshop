@@ -15,7 +15,6 @@ export class SessionsComponent implements OnInit {
     getSessions(): void {
         this.sessionService
             .getSessions()
-            //.then((v) => console.log(v));
             .then(sessions => this.sessions = sessions);
 
         console.log(JSON.stringify(this.sessions));

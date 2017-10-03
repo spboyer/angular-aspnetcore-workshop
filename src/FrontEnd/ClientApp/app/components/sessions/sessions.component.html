@@ -1,11 +1,25 @@
-<p *ngIf="!sessions"><em>Loading...</em></p>
+<p *ngIf="!sessions">
+  <em>Loading...</em>
+</p>
 
 <div class="agenda">
   <h1>My Conference 2017</h1>
+  <div class="row">
+    <div *ngFor="let session of sessions" class="col-md-3">
+      <div class="panel panel-default session">
+        <div class="panel-body">
+          <p>{{session.track.name}}</p>
+          <h3 class="panel-title">
+            <a [routerLink]="['/sessiondetail', session.id]">{{session.title}}</a>
+          </h3>
+          <p *ngFor="let speaker of session.speakers">
+            <em>
+              <a [routerLink]="['/speaker', speaker.id]">{{speaker.name}}</a>
+            </em>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  <ul>
-    <li *ngFor="let session of sessions">
-      <span>{{session.title}}</span>
-    </li>
-  </ul>
 </div>
