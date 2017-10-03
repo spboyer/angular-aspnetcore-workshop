@@ -4,6 +4,13 @@
 
 <div class="agenda">
   <h1>My Conference 2017</h1>
+
+  <ul class="nav nav-pills">
+    <li *ngFor="let day of days" role="presentation">
+      <a>{{day}}</a>
+    </li>
+  </ul>
+
   <div class="row">
     <div *ngFor="let session of sessions" class="col-md-3">
       <div class="panel panel-default session">

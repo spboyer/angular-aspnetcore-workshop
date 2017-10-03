@@ -1,0 +1,15 @@
+<ol class="breadcrumb">
+    <li><a (click)="goBack()">Agenda</a></li>
+    <li class="active">{{session.title}}</li>
+</ol>
+
+<h1>{{session.title}}</h1>
+<span class="label label-default">{{session.track.name}}</span>
+
+<p *ngFor="let speaker of session.speakers">
+    <em>
+      <a [routerLink]="['/speaker', speaker.id]">{{speaker.name}}</a>
+    </em>
+  </p>
+
+<p>{{session.abstract}}</p>

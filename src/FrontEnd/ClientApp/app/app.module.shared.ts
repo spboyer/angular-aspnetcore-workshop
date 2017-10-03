@@ -11,6 +11,9 @@ import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
 import { CounterComponent } from './components/counter/counter.component';
 import { SessionsService } from './components/sessions/sessions.service';
 import { SessionsComponent } from './components/sessions/sessions.component';
+import { SessionDetailComponent } from './components/sessiondetail/sessiondetail.component'
+import { SpeakerComponent } from './components/speakers/speaker.component';
+
 @NgModule({
     declarations: [
         AppComponent,
@@ -18,7 +21,9 @@ import { SessionsComponent } from './components/sessions/sessions.component';
         CounterComponent,
         FetchDataComponent,
         HomeComponent,
-        SessionsComponent
+        SessionsComponent,
+        SessionDetailComponent,
+        SpeakerComponent
     ],
     imports: [
         CommonModule,
@@ -30,6 +35,8 @@ import { SessionsComponent } from './components/sessions/sessions.component';
             { path: 'counter', component: CounterComponent },
             { path: 'fetch-data', component: FetchDataComponent },
             { path: 'sessions', component: SessionsComponent },
+            { path: 'sessiondetail/:id', component: SessionDetailComponent },
+            { path: 'speaker/:id', component: SpeakerComponent },
             { path: '**', redirectTo: 'home' }
         ])
     ],
