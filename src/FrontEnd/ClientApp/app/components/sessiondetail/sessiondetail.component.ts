@@ -8,7 +8,7 @@ import { DataService } from '../shared/data.service';
 
 @Component({
   selector: 'session-detail',
-  templateUrl: 'sessiondetail.component.html'
+  templateUrl: './sessiondetail.component.html'
 })
 export class SessionDetailComponent implements OnInit {
   session: Session;

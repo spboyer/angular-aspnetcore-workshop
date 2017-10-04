@@ -6,7 +6,7 @@ import { Session } from '../shared/model';
 
 @Component({
     selector: 'sessions',
-    templateUrl: 'sessions.component.html'
+    templateUrl: './sessions.component.html'
 })
 export class SessionsComponent implements OnInit {
     sessions: Session[];

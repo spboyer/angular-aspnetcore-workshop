@@ -6,7 +6,7 @@ import { Speaker } from '../shared/model';
 
 @Component({
   selector: 'speakers',
-  templateUrl: 'speakers.component.html'
+  templateUrl: './speakers.component.html'
 })
 export class SpeakersComponent implements OnInit {
   speakers: Speaker[];

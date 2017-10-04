@@ -8,7 +8,7 @@ import { Speaker } from '../shared/model';
 
 @Component({
   selector: 'speakerdetail',
-  templateUrl: 'speakerdetail.component.html'
+  templateUrl: './speakerdetail.component.html'
 })
 export class SpeakerDetailComponent implements OnInit {
   speaker: Speaker;
@@ -28,5 +28,5 @@ export class SpeakerDetailComponent implements OnInit {
   goBack() {
     this.location.back();
   }
-  
+
 }
