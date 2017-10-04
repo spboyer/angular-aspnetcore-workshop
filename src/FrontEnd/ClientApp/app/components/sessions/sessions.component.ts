@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { SessionsService } from './sessions.service';
-import { Session } from './session';
+import { SessionsService } from '../shared/data.service';
+import { Session } from '../shared/model';
 
 @Component({
     selector: 'sessions',

@@ -3,8 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Location }                 from '@angular/common';
 
-import { SessionsService } from '../sessions/sessions.service';
-import { Speaker } from '../sessions/session';
+import { SessionsService } from '../shared/data.service';
+import { Speaker } from '../shared/model';
 
 @Component({
   selector: 'speakers',

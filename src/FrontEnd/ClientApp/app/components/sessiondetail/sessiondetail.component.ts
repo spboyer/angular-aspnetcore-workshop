@@ -3,8 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Location }                 from '@angular/common';
 
-import { Session } from '../sessions/session';
-import { SessionsService } from '../sessions/sessions.service';
+import { Session } from '../shared/model';
+import { SessionsService } from '../shared/data.service';
 
 @Component({
   selector: 'session-detail',

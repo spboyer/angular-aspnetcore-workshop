@@ -3,9 +3,7 @@ import { Headers, Http } from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 
-import { Session } from './session';
-import { Speaker } from './session';
-
+import { Session, Speaker } from './model';
 
 @Injectable()
 export class SessionsService {
