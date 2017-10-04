@@ -9,9 +9,10 @@ import { NavMenuComponent } from './components/navmenu/navmenu.component';
 import { HomeComponent } from './components/home/home.component';
 import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
 import { CounterComponent } from './components/counter/counter.component';
-import { SessionsService } from './components/shared/data.service';
+import { DataService } from './components/shared/data.service';
 import { SessionsComponent } from './components/sessions/sessions.component';
-import { SessionDetailComponent } from './components/sessiondetail/sessiondetail.component'
+import { SessionDetailComponent } from './components/sessiondetail/sessiondetail.component';
+import { SpeakersComponent } from './components/speakers/speakers.component';
 import { SpeakerDetailComponent } from './components/speakerdetail/speakerdetail.component';
 
 @NgModule({
@@ -23,6 +24,7 @@ import { SpeakerDetailComponent } from './components/speakerdetail/speakerdetail
         HomeComponent,
         SessionsComponent,
         SessionDetailComponent,
+        SpeakersComponent,
         SpeakerDetailComponent
     ],
     imports: [
@@ -37,10 +39,11 @@ import { SpeakerDetailComponent } from './components/speakerdetail/speakerdetail
             { path: 'sessions', component: SessionsComponent },
             { path: 'sessiondetail/:id', component: SessionDetailComponent },
             { path: 'speaker/:id', component: SpeakerDetailComponent },
+            { path: 'speakers', component: SpeakersComponent },
             { path: '**', redirectTo: 'home' }
         ])
     ],
-    providers: [SessionsService]
+    providers: [DataService]
 })
 export class AppModuleShared {
 }

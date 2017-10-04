@@ -10,6 +10,7 @@ export class Speaker {
   name: string;
   bio?: any;
   webSite?: any;
+  sessions?: Session[]
 }
 
 export class Session {

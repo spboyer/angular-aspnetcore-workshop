@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Location }                 from '@angular/common';
 
-import { SessionsService } from '../shared/data.service';
+import { DataService } from '../shared/data.service';
 import { Speaker } from '../shared/model';
 
 @Component({
@@ -14,15 +14,19 @@ export class SpeakerDetailComponent implements OnInit {
   speaker: Speaker;
 
   constructor(
-    private sessionService: SessionsService,
+    private dataService: DataService,
     private route: ActivatedRoute,
     private location: Location
   ) { }
 
   ngOnInit() {
     this.route.paramMap
-    .switchMap((params: ParamMap) => this.sessionService.getSpeaker(+params.get('id')))
+    .switchMap((params: ParamMap) => this.dataService.getSpeaker(+params.get('id')))
     .subscribe(speaker => this.speaker= speaker);
   }
 
+  goBack() {
+    this.location.back();
+  }
+  
 }

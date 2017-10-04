@@ -6,7 +6,7 @@ import 'rxjs/add/operator/toPromise';
 import { Session, Speaker } from './model';
 
 @Injectable()
-export class SessionsService {
+export class DataService {
 
   private headers = new Headers({ 'Content-Type': 'application/json' });
   private sessionUrl = '/api/sessions';
@@ -36,6 +36,13 @@ export class SessionsService {
     return this.http.get(url)
       .toPromise()
       .then(response => <Speaker>response.json())
+      .catch(this.handleError);
+  }
+
+  getSpeakers(): Promise<Speaker[]> {
+    return this.http.get(this.speakerUrl)
+      .toPromise()
+      .then(response => <Speaker[]>response.json())
       .catch(this.handleError);
   }
 

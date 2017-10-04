@@ -4,7 +4,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Location }                 from '@angular/common';
 
 import { Session } from '../shared/model';
-import { SessionsService } from '../shared/data.service';
+import { DataService } from '../shared/data.service';
 
 @Component({
   selector: 'session-detail',
@@ -14,7 +14,7 @@ export class SessionDetailComponent implements OnInit {
   session: Session;
 
   constructor(
-    private sessionService: SessionsService,
+    private sessionService: DataService,
     private route: ActivatedRoute,
     private location: Location
   ) { }

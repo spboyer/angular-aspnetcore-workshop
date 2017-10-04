@@ -1,9 +1,10 @@
-<p *ngIf="!sessions">
-  <em>Loading...</em>
-</p>
 
 <div class="agenda">
   <h1>My Conference 2017</h1>
+
+  <p *ngIf="!sessions">
+    <em>Loading...</em>
+  </p>
 
   <ul class="nav nav-pills">
     <li *ngFor="let day of days" role="presentation">

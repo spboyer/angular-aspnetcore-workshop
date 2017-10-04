@@ -1,5 +1,6 @@
 <ol class="breadcrumb">
-  <li><a>Speakers</a></li>
+  <li><a (click)="goBack()" style="cursor: pointer">Back</a></li>
+  <li><a [routerLink]="['/speakers']">Speakers</a></li>
   <li class="active">{{speaker.name}}</li>
 </ol>
 

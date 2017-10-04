@@ -1,0 +1,10 @@
+<div>
+  <h1>Speakers</h1>
+
+  <ul>
+    <li *ngFor="let speaker of speakers">
+      <a [routerLink]="['/speaker', speaker.id]">{{speaker.name}}</a>
+    </li>
+  </ul>
+
+</div>

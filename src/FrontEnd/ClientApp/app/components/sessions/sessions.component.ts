@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { SessionsService } from '../shared/data.service';
+import { DataService } from '../shared/data.service';
 import { Session } from '../shared/model';
 
 @Component({
@@ -12,10 +12,10 @@ export class SessionsComponent implements OnInit {
     sessions: Session[];
     days: string[];
 
-    constructor(private sessionService: SessionsService) { }
+    constructor(private dataService: DataService) { }
 
     getSessions(): void {
-        this.sessionService
+        this.dataService
             .getSessions()
             .then(sessions => this.sessions = sessions)
             .then(sessions => this.getDays(this.sessions));
