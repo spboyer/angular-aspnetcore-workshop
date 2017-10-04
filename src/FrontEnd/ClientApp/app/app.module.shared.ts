@@ -12,7 +12,7 @@ import { CounterComponent } from './components/counter/counter.component';
 import { SessionsService } from './components/shared/data.service';
 import { SessionsComponent } from './components/sessions/sessions.component';
 import { SessionDetailComponent } from './components/sessiondetail/sessiondetail.component'
-import { SpeakerComponent } from './components/speakers/speaker.component';
+import { SpeakerDetailComponent } from './components/speakerdetail/speakerdetail.component';
 
 @NgModule({
     declarations: [
@@ -23,7 +23,7 @@ import { SpeakerComponent } from './components/speakers/speaker.component';
         HomeComponent,
         SessionsComponent,
         SessionDetailComponent,
-        SpeakerComponent
+        SpeakerDetailComponent
     ],
     imports: [
         CommonModule,
@@ -36,7 +36,7 @@ import { SpeakerComponent } from './components/speakers/speaker.component';
             { path: 'fetch-data', component: FetchDataComponent },
             { path: 'sessions', component: SessionsComponent },
             { path: 'sessiondetail/:id', component: SessionDetailComponent },
-            { path: 'speaker/:id', component: SpeakerComponent },
+            { path: 'speaker/:id', component: SpeakerDetailComponent },
             { path: '**', redirectTo: 'home' }
         ])
     ],

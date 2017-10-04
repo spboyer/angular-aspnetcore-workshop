@@ -7,10 +7,10 @@ import { SessionsService } from '../shared/data.service';
 import { Speaker } from '../shared/model';
 
 @Component({
-  selector: 'speakers',
-  templateUrl: 'speaker.component.html'
+  selector: 'speakerdetail',
+  templateUrl: 'speakerdetail.component.html'
 })
-export class SpeakerComponent implements OnInit {
+export class SpeakerDetailComponent implements OnInit {
   speaker: Speaker;
 
   constructor(
