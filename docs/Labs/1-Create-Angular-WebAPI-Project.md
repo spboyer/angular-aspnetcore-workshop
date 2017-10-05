@@ -1,10 +1,33 @@
+# Creating an Angular App
 
-## Creating a basic EF model
+## Option #1: CLI and Visual Studio Code
+
+Create a solution file to contain the projects created in the labs.
+*-n spcifies the name of the solution file, -o specifies the folder name to create the content.
+
+``` bash
+dotnet new sln -n ConferencePlanner -o ConferencePlanner
+```
+
+Create the new angular application in the **ConferencePlanner** directory
+
+``` bash
+dotnet new angular -n FrontEnd -o ConferencePlanner/FrontEnd
+```
+
+Finally, add the **FrontEnd** app to the sln.
+
+``` bash
+cd ConferencePlanner
+dotnet sln add FrontEnd/FrontEnd.csproj
+```
+
+## Option #2: Using Visual Studio
 
 1. Create a new project using File / New / ASP.NET Core Web Application. Select the Angular template, No Auth, no Docker support.
    ![](images/new-project.png)
-   ![](images/new-web-api-settings.png)
-   > ***Note:* If not using Visual Studio, create the project using `dotnet new angular` at the cmd line**
+   ![](images/new-angular-project.png)
+
 1. Add a new `Models` folder to the root of the application.
 1. Add a new `Speaker` class using the following code:
     ```csharp
@@ -75,6 +98,7 @@
     ```
 
 ## Register the DB Context Service
+
 1. Add the following code to the top of the `ConfigureServices()` method in `Startup.cs`:
    ```csharp
     services.AddDbContext<ApplicationDbContext>(options =>
@@ -111,16 +135,20 @@
   >For more information on these commands and scaffolding in general, see [this tutorial](https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-mvc-app/adding-model#add-initial-migration-and-update-the-database).
 
 ## A quick look at the Values Controller
+
 First, open the `Controllers` controller and take a quick look at the `ValuesController`. You'll see simple functions that correspond to HTTP verbs. You'll see the output of this controller in a bit, but first we'll build our own API controller for the `Speakers` model class.
 
 ## Scaffolding an API Controller
+
 ### Using Visual Studio
+
 1. Right-click the `Controllers` folder and select Add/Controller. You'll be shown a prompt for setting up Scaffolding. Select "Minimal Dependencies".
 1. Again, right-click the `Controllers` folder and select Add/Controller. Select "API Controller with Actions, Using EF".
 1. In the dialog, select the `Speaker` model for the Model Class, `ApplicationDbContext` for the "Data Context Class" and click the `Add` button.
    ![](images/scaffold-api-controller.png)
 
 ### Using the cmd line
+
 1. Edit the project file to add a reference to the `Microsoft.VisualStudio.Web.CodeGeneration.Design` package:
     ```xml
     <ItemGroup>
@@ -130,7 +158,8 @@ First, open the `Controllers` controller and take a quick look at the `ValuesCon
     ```
 1. Run `dotnet restore` in the project folder at the cmd line
 1. Run the following in the project folder at the cmd line:
-    ```
+
+    ``` bash
     dotnet aspnet-codegenerator controller -name SpeakersController -namespace FrontEnd.Controllers -m FrontEnd.Models.Speaker -dc FrontEnd.Models.ApplicationDbContext -api -outDir Controllers
     ```
 
