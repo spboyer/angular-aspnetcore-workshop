@@ -1,10 +1,10 @@
 
 ## Creating a basic EF model
 
-1. Create a new project using File / New / ASP.NET Core Web Application. Select the Web API template, No Auth, no Docker support.
+1. Create a new project using File / New / ASP.NET Core Web Application. Select the Angular template, No Auth, no Docker support.
    ![](images/new-project.png)
    ![](images/new-web-api-settings.png)
-   > ***Note:* If not using Visual Studio, create the project using `dotnet new webapi` at the cmd line**
+   > ***Note:* If not using Visual Studio, create the project using `dotnet new angular` at the cmd line**
 1. Add a new `Models` folder to the root of the application.
 1. Add a new `Speaker` class using the following code:
     ```csharp
