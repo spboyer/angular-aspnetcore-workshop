@@ -3,25 +3,32 @@
 In this session, we'll add the rest of our models and controllers that expose them. We'll also refactor our application, moving our DTOs to a shared project so they can be used by our front-end application later.
 
 ## Add a ConferenceDTO project
+
 > We'll start by creating the new shared project to hold our data transfer objects.
+
 ### Adding the ConferenceDTO Project using Visual Studio
+
 1. If using Visual Studio, right-click on the Solution and select *Add* / *New Project...*.
+
 1. Select *.NET Standard* from the project types on the left and select the *Class Libarary (.NET Standard)* template. Name the project ConferenceDTO and press OK.
 ![](images/create-dto-project.png)
+
 1. Delete the generated `Class1.cs` file from this new project.
 
 ### Adding the ConferenceDTO project via the Command Line
+
 1. Open a command prompt and navigate to the root `ConferencePlanner` directory.
 1. Run the following command:
-   ```
+   ```bash
    dotnet new classlib -o ConferenceDTO -f netstandard2.0
    ```
 1. Next we'll need to add a reference to the ConferenceDTO project from the FrontEnd project. From the command line, navigate to the FrontEnd project directory and execute the following command:
-   ```
+   ```bash
    dotnet add reference ../ConferenceDTO/ConferenceDTO.csproj
    ```
 
 ## Refactoring the Speaker model into the ConferenceDTO project
+
 1. Copy the `Speaker.cs` class from the *FrontEnd* application into the root of the new ConferenceDTO project, and change the namespace to `ConferenceDTO`.
 1. The data annotations references can't be resolved to a missing NuGet package. Add a reference to `System.ComponentModel.Annotations` `<PackageReference Include="System.ComponentModel.Annotations" Version="4.4.0" />`. When the package restore completes, you should see that your data annotations are now resolved.
 1. Go back to the *FrontEnd* application and modify the code in `Speaker.cs` as shown:
@@ -158,10 +165,13 @@ We've got several more models to add, and unfortunately it's a little mechanical
    ```
 
 ## Creating Derived Models in the FrontEnd project
+
 We're not going to create our EF models directly from the *ConferenceDTO* classes. Instead, we'll create some composite classes such as *SessionSpeaker*, since these will map more closely to what our application will be working with.
 
 We're also going to take this opportunity to rename the `Models` directory in the *FrontEnd* project to `Data` since it no longer just contains models.
+
 1. Right-click the `Models` directory and select `Rename`, changing the name to `Data`.
+
 1. In the *FrontEnd* project, add a `ConferenceAttendee.cs` class to the `Data` directory with the following code:
    ```csharp
    using System;
@@ -333,9 +343,11 @@ We're also going to take this opportunity to rename the `Models` directory in th
    ```
 
 ## Update the ApplicationDbContect
+
 Okay, now we need to update our `ApplicationDbContext` so Entity Framework knows about our new models.
 
 1. Update `ApplicationDbContext.cs` to use the following code:
+
    ```csharp
 	using System;
 	using System.Collections.Generic;
@@ -399,6 +411,7 @@ Okay, now we need to update our `ApplicationDbContext` so Entity Framework knows
 1. Ensure that the application builds now.
 
 ## Add a new database migration
+
 1. Run the following commands in the command prompt:
    ```console
    dotnet ef migrations add Refactor
@@ -409,6 +422,7 @@ Okay, now we need to update our `ApplicationDbContext` so Entity Framework knows
 >Save point for above code changes is [here](/save-points/2a-Refactor-to-ConferenceDTO/ConferencePlanner)
 
 ## Updating the Speakers API controller
+
 1. Start by deleting the the attribute that reads `[Produces("application/json")]`. This attribute locks the controller's return type to JSON. By removing this attribute, we'll allow ASP.NET Core's content negotiatiation to output the response type the client requests.
 1. Change the Route attribute from `[Route("api/Speakers")]` to `[Route("api/[controller]")]`.
 1. We'll rename `_context` to `_db`, so your context will appear as shown:
@@ -582,23 +596,24 @@ Okay, now we need to update our `ApplicationDbContext` so Entity Framework knows
    ```
 
 ## Adding the remaining API Controllers
-1. Add the following response DTO classes from [the save point folder](save-points/2b-FrontEnd-completed/ConferenceDTO)
+
+1. Add the following response DTO classes from [the save point folder](/docs/Labs/save-points/ConferenceDTO)
    - `AttendeeResponse`
    - `SessionRespsone`
    - `ConferenceResponse`
    - `TrackResponse`
    - `TagResponse`
-1. Update the `EntityExtensions` class with the extra mapping methods from [the save point folder](save-points/2b-FrontEnd-completed/ConferencePlanner/Infrastructure)
-1. Copy the following controllers from [the save point folder](save-points/2b-FrontEnd-completed/ConferencePlanner/Controllers) into the current project's `FrontEnd/Controllers` directory:
+1. Update the `EntityExtensions` class with the extra mapping methods from [the save point folder](/docs/Labs/save-points/ConferencePlanner/FrontEnd/Infrastructure)
+1. Copy the following controllers from [the save point folder](/docs/Labs/save-points/ConferencePlanner/FrontEnd/Controllers) into the current project's `FrontEnd/Controllers` directory:
    - `SessionsController`
    - `ConferencesController`
    - `AttendeesController`
 
 ## Adding Seed data
-1. Copy the `NDCSydneyData.cs` class from [here](/src/FrontEnd/Data/NDCSydneyData.cs) into the current project's `/src/FrontEnd/Data/` directory.
+1. Copy the `MixedSeedData.cs` class from [here](/docs/Labs/save-points) into the current project's `/src/FrontEnd/Data/` directory.
 1. Add the following lines at the end of the `Configure()` method in the *FrontEnd* `Startup.cs` file to seed the database on application startup:
    ```csharp
    // Comment out the following line to avoid resetting the database each time
-   NDCSydneyData.Seed(app.ApplicationServices);
+   MixedSeedData.Seed(app.ApplicationServices);
    ```
 1. Run the application to see the updated data via Swagger UI.
