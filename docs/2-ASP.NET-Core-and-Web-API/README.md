@@ -120,7 +120,9 @@
     }
     ```
 
-    > The values are held in memory using a static field. The values will be lost each time the app restarts. In a later lab we will use a proper data store.
+    > You can alternatively create an ASP.NET Core project with a Web API by running `dotnet new webapi` from the command-line or using the ASP.NET Core Web API template in Visual Studio. Visual Studio also provides item templates and scaffolders for generating Web API controllers. We'll use the scaffolders in an later lab.
+
+    > The values for this Web API are held in memory using a static field on the controller. These values will be lost each time the app restarts. In a later lab we will use a proper data store.
 
 1. Using [Postman](https://www.getpostman.com/) or similar tool send some POST requests to create some values. Not the value of the Location header in the responses
 1. Issue some GET requests to request individual values or all the values
