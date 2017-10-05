@@ -5,7 +5,7 @@ import { DataService } from '../shared/data.service';
 import { Session } from '../shared/model';
 
 @Component({
-    selector: 'sessions',
+    selector: 'conf-sessions',
     templateUrl: './sessions.component.html'
 })
 export class SessionsComponent implements OnInit {

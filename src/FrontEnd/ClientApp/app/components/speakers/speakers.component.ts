@@ -5,7 +5,7 @@ import { DataService } from '../shared/data.service';
 import { Speaker } from '../shared/model';
 
 @Component({
-  selector: 'speakers',
+  selector: 'conf-speakers',
   templateUrl: './speakers.component.html'
 })
 export class SpeakersComponent implements OnInit {
