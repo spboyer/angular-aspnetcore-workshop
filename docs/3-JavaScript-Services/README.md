@@ -59,10 +59,5 @@
 ## Extra
 
 1. Create a React, or React + Redux application using the above steps but selecting a different project template.
-1. Create a production build by setting `ASPNETCORE_ENVIRONMENT=Production`, then running the following:
-
-  ``` bash
-  webpack --config webpack.config.vendor.js
-  webpack
-  ```
+1. Try publishing your application by running `dotnet publish` and example the bundled files in the `wwwroot/dist` folder
 1. Inspect the front-end resources in browser tools and verify that the resources are minified.
