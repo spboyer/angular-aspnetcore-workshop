@@ -1,6 +1,6 @@
 # Overview, Tools and Acquisition (1 hour)
 
-> We'll get started with a quick overview of .NET Core: what it is, why you should care, and how to get set up to start using it.
+We'll get started with a quick overview of .NET Core: what it is, why you should care, and how to get set up to start using it.
 
 ## Prerequisites
 * [Visual Studio 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15)

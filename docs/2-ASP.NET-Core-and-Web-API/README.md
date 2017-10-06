@@ -1,6 +1,6 @@
 # ASP.NET Core and Web API overview
 
-> Now that you are setup with .NET Core, we'll do an overview of ASP.NET Core and how to build your first ASP.NET Core app. Then we'll dive into building Web APIs with ASP.NET Core.
+Now that you are setup with .NET Core, we'll do an overview of ASP.NET Core and how to build your first ASP.NET Core app. Then we'll dive into building Web APIs with ASP.NET Core.
 
 ## Prerequisites
 * [Visual Studio 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15)
