@@ -16,10 +16,10 @@ From     | To       | Session
 
 ## Where to go next
 
-* [http://dot.net](http://dot.net) - .NET Core overview, tutorials, links
-* [http://doc.microsoft.com](http://docs.microsoft.com) - All the docs, tutorials, more!
-* [ASP.NET Documentation](https://docs.microsoft.com/en-us/aspnet/)
-* [.NET Standard docs](https://docs.microsoft.com/en-us/dotnet/articles/standard/library)
+* Get started with .NET Core - https://dot.net/core
+* Get Visual Studio for your platform of choice - https://visualstudio.com
+* .NET Core [docs](https://docs.microsoft.com/dotnet/docs) | [code](https://github.com/dotnet/home)
+* ASP.NET Core [docs](https://docs.microsoft.com/aspnet/core) | [code](https://github.com/aspnet/home)
+* EF Core [docs](https://docs.microsoft.com/ef/core) | [code](https://github.com/aspnet/entityframeworkcore)
+* ASP.NET Core JavaScript Services [docs](https://aka.ms/spaservicesdocs) | [code](https://github.com/aspnet/javascriptservices)
 * [Microservices e-book](http://aka.ms/MicroservicesEbook)
-* [JavaScript Services GitHub](https://github.com/aspnet/JavaScriptServices)
-* [JavaScript Services Docs](https://aka.ms/spaservicesdocs)
