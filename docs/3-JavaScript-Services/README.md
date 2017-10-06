@@ -58,7 +58,7 @@
 
 ## Extra
 
-1. Create a Knockout, React, or React + Redux application using the above steps but selecting a different project template.
+1. Create a React, or React + Redux application using the above steps but selecting a different project template.
 1. Create a production build by setting `ASPNETCORE_ENVIRONMENT=Production`, then running the following:
 
   ``` bash
