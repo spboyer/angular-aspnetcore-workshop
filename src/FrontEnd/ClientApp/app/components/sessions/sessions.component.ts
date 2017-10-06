@@ -10,32 +10,16 @@ import { Session } from '../shared/model';
 })
 export class SessionsComponent implements OnInit {
     sessions: Session[];
-    days: string[];
 
     constructor(private dataService: DataService) { }
 
     getSessions(): void {
         this.dataService
             .getSessions()
-            .then(sessions => this.sessions = sessions)
-            .then(sessions => this.getDays(this.sessions));
+            .then(sessions => this.sessions = sessions);
     }
 
     ngOnInit() {
         this.getSessions();
     }
-
-    getDays(sessions: Session[]) {
-        var dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-        this.days = [];
-
-        this.sessions.forEach((s) => {
-            var d = new Date(s.startTime);
-            var dayName = dayNames[d.getDay()];
-            if (this.days.indexOf(dayName) < 0) {
-                this.days.push(dayName);
-            }
-        })
-    }
-
 }
