@@ -328,6 +328,7 @@ In this session, we'll add the code for the client application. Create a view fo
 1. As we did with the session page, add the component to the imports in `app.module.shared.ts`
 
     ```typescript
+    import { SpeakerDetailComponent } from './components/speakerdetail/speakerdetail.component';
     ```
 
 1. Add the **SpeakerDetailComponent** in the `declarations` part of the **@NgModule**
