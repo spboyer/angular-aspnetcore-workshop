@@ -169,7 +169,7 @@ In this section, we'll be adding documentation to our API using the Swashbuckle 
 
 *Swashbuckle.AspNetCore* is an open source project for generating Swagger documents for Web APIs that are built with ASP.NET Core MVC.
 
-Swagger is a machine readable representation of a RESTful API that enables support for interactive documentation, client SDK generation and discoverability.
+Swagger (now called the OpenAPI specification) is a machine readable representation of a RESTful API that enables support for interactive documentation, client SDK generation and discoverability.
 
 Additional information on using Swashbuckle in ASP.NET Core is available in this tutorial: [ASP.NET Web API Help Pages using Swagger](https://docs.microsoft.com/en-us/aspnet/core/tutorials/web-api-help-pages-using-swagger)
 
