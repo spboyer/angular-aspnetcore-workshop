@@ -179,10 +179,19 @@ In this session, we'll add the code for the client application. Create a view fo
     ```typescript
     { path: 'sessions', component: SessionsComponent },
     ```
-1. Finally add the **DataService** as a provider after the imports.
+1. Add the **DataService** as a provider after the imports.
 
     ```typescript
     providers: [DataService]
+    ```
+1. Finally, add the following in `navmenu.component.html` to add a link to the sessions list from the left nav:
+
+    ```html
+    <li [routerLinkActive]="['link-active']">
+        <a [routerLink]="['/sessions']">
+            <span class='glyphicon glyphicon-th-list'></span> Sessions
+        </a>
+    </li>
     ```
 
 ### Creating the Session Detail Page
