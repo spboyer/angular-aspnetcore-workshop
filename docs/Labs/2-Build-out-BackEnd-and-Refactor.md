@@ -611,6 +611,6 @@ Okay, now we need to update our `ApplicationDbContext` so Entity Framework knows
 1. Add the following lines at the end of the `Configure()` method in the *FrontEnd* `Startup.cs` file to seed the database on application startup:
     ```csharp
     // Comment out the following line to avoid resetting the database each time
-    MixedSeedData.Seed(app.ApplicationServices);
+    MixSeedData.Seed(app.ApplicationServices);
     ```
 1. Run the application to see the updated data via Swagger UI.
