@@ -134,9 +134,9 @@ dotnet sln add FrontEnd/FrontEnd.csproj
     ```
     >For more information on these commands and scaffolding in general, see [this tutorial](https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-mvc-app/adding-model#add-initial-migration-and-update-the-database).
 
-## A quick look at the Values Controller
+## A quick look at the Sample Data Controller
 
-First, open the `Controllers` folder and take a quick look at the `ValuesController`. You'll see simple functions that correspond to HTTP verbs. You'll see the output of this controller in a bit, but first we'll build our own API controller for the `Speakers` model class.
+First, open the `Controllers` folder and take a quick look at the `SampleDataController`. This controller has a `WeatherForecasts` method that responds to GET requests. The weather forecast data from this endpoint is displayed on the "Fetch data" page of the Angular app. You'll see the output of this controller in a bit, but first we'll build our own API controller for the `Speakers` model class.
 
 ## Scaffolding an API Controller
 
@@ -197,7 +197,7 @@ Additional information on using Swashbuckle in ASP.NET Core is available in this
 1. Run the application (F5 in Visual Studio or `dotnet run` from console).
 1. Browse to the Swagger UI at `http://localhost:<random_port>/swagger`.
    ![](images/swagger-speakers.png)
-1. First, click on the *GET* button in *Values* section. You'll see the values that were listed in the `ValuesController` earlier.
+1. First, click on the *GET* button in *SampleData* section and then click *Try it out!*. You'll see the weather forecast data from the `SampleDataController`.
 1. In the *Speakers* section, click on the *GET* button. You'll see there are not speakers returned. Let's add one!
 1. In the *Speakers* section, click on the *POST* button. Referencing the example on the right, fill in a speaker request. Leave the `ID` blank, that will be filled in by the database.
     ![](images/swagger-create-speaker.png)
