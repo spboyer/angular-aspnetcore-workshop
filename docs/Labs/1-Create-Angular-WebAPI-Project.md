@@ -136,7 +136,7 @@ dotnet sln add FrontEnd/FrontEnd.csproj
 
 ## A quick look at the Values Controller
 
-First, open the `Controllers` controller and take a quick look at the `ValuesController`. You'll see simple functions that correspond to HTTP verbs. You'll see the output of this controller in a bit, but first we'll build our own API controller for the `Speakers` model class.
+First, open the `Controllers` folder and take a quick look at the `ValuesController`. You'll see simple functions that correspond to HTTP verbs. You'll see the output of this controller in a bit, but first we'll build our own API controller for the `Speakers` model class.
 
 ## Scaffolding an API Controller
 
