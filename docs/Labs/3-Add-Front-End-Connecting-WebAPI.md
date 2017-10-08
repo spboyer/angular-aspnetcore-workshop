@@ -106,8 +106,8 @@ In this session, we'll add the code for the client application. Create a view fo
 
 ### Create and add the Sessions component
 
-1. Add a new folder called *sessions*
-1. In the same folder, create a new file called **sessions.component.ts**
+1. Add a new folder called **sessions**
+1. In the same folder, create a new file called `sessions.component.ts`
 
     ```typescript
     import { Component, OnInit } from '@angular/core';
@@ -136,7 +136,7 @@ In this session, we'll add the code for the client application. Create a view fo
         }
     }
     ```
-1. Next add the template file **sessions.component.html**
+1. Next add the template file `sessions.component.html`
 
     ```html
     <div class="agenda">
@@ -165,7 +165,7 @@ In this session, we'll add the code for the client application. Create a view fo
       </div>
     </div>
     ```
-1. Now that the components and data service is created, open **app.module.shared.ts** to import the newly created components. Add the following to the top to import the modules.
+1. Now that the components and data service is created, open `app.module.shared.ts` to import the newly created components. Add the following to the top to import the modules.
 
     ```typescript
     import { DataService } from './components/shared/data.service';
@@ -189,8 +189,8 @@ In this session, we'll add the code for the client application. Create a view fo
 
 > Now that we have a home page showing all the sessions, we'll create a page to show all the details of a specific session
 
-1. Add a new folder called *sessiondetail*
-1. In the same folder, create a new file called **sessiondetail.component.ts**
+1. Add a new folder called **sessiondetail**
+1. In the same folder, create a new file called `sessiondetail.component.ts`
 
     ```typescript
     import 'rxjs/add/operator/switchMap';
@@ -227,7 +227,7 @@ In this session, we'll add the code for the client application. Create a view fo
 
     }
     ```
-1. Add a new file in the same folder called **sessiondetail.component.html** for the template
+1. Add a new file in the same folder called `sessiondetail.component.html` for the template
 
     ```html
     <ol class="breadcrumb">
@@ -248,7 +248,7 @@ In this session, we'll add the code for the client application. Create a view fo
     <p>{{session.abstract}}</p>
     ```
 
-1. As we did with the session page, add the component to the imports in **app.module.shared.ts**
+1. As we did with the session page, add the component to the imports in `app.module.shared.ts`
 
     ```typescript
     import { SessionDetailComponent } from './components/sessiondetail/sessiondetail.component';
@@ -263,8 +263,8 @@ In this session, we'll add the code for the client application. Create a view fo
 
 > We'll add a page to show details for a given speaker
 
-1. Add a new folder called *speakerdetail**
-1. In the same folder, create a new file called **speakerdetail.component.ts**
+1. Add a new folder called **speakerdetail**
+1. In the same folder, create a new file called `speakerdetail.component.ts`
 
     ```typescript
     import 'rxjs/add/operator/switchMap';
@@ -300,7 +300,7 @@ In this session, we'll add the code for the client application. Create a view fo
 
     }
     ```
-1. Add a new file in the same folder called **speakerdetail.component.html** for the template
+1. Add a new file in the same folder called `speakerdetail.component.html` for the template
 
     ```html
     <ol class="breadcrumb">
@@ -325,7 +325,7 @@ In this session, we'll add the code for the client application. Create a view fo
     </div>
     ```
 
-1. As we did with the session page, add the component to the imports in **app.module.shared.ts**
+1. As we did with the session page, add the component to the imports in `app.module.shared.ts`
 
     ```typescript
     ```
