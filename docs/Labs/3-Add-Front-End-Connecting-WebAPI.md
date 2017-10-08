@@ -123,27 +123,17 @@ In this session, we'll add the code for the client application. Create a view fo
     export class SessionsComponent implements OnInit {
         sessions: Session[];
 
-    constructor(private dataService: DataService) { }
+        constructor(private dataService: DataService) { }
 
-    getSessions(): void {
-        this.dataService
-            .getSessions()
-            .then(sessions => this.sessions = sessions);
-    }
+        getSessions(): void {
+            this.dataService
+                .getSessions()
+                .then(sessions => this.sessions = sessions);
+        }
 
-    ngOnInit() {
-        this.getSessions();
-    }
-
-    this.sessions.forEach((s) => {
-          var d = new Date(s.startTime);
-          var dayName = dayNames[d.getDay()];
-          if (this.days.indexOf(dayName) < 0) {
-              this.days.push(dayName);
-          }
-      })
-    }
-
+        ngOnInit() {
+            this.getSessions();
+        }
     }
     ```
 1. Next add the template file **sessions.component.html**
