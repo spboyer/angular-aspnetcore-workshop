@@ -300,9 +300,7 @@ We're also going to take this opportunity to rename the `Models` directory in th
    {
         public class Tag : ConferenceDTO.Tag
         {
-
             public virtual ICollection<SessionTag> SessionTags { get; set; }
-
         }
    }
    ```
@@ -315,18 +313,15 @@ We're also going to take this opportunity to rename the `Models` directory in th
 
    namespace FrontEnd.Data
    {
+   public class Track : ConferenceDTO.Track
+       {
+           [Required]
+           public Conference Conference { get; set; }
 
-    public class Track : ConferenceDTO.Track
-    {
-        [Required]
-        public Conference Conference { get; set; }
-
-        public virtual ICollection<Session> Sessions { get; set; }
-    }
-
+           public virtual ICollection<Session> Sessions { get; set; }
+       }
    }
    ```
-
 
 1. Modify the `Speaker.cs` class we wrote previously to make the following two changes: update to the namespace to match our directory rename, and add a referece to the `SessionSpeaker` composite class:
    ```csharp
