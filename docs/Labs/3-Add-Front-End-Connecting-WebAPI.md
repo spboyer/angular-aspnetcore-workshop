@@ -179,10 +179,9 @@ In this session, we'll add the code for the client application. Create a view fo
     ```typescript
     { path: 'sessions', component: SessionsComponent },
     ```
-1. Finally add the **DataService** as a provider.
+1. Finally add the **DataService** as a provider after the imports.
 
     ```typescript
-    ,
     providers: [DataService]
     ```
 
