@@ -106,7 +106,7 @@ In this session, we'll add the code for the client application. Create a view fo
 
 ### Create and add the Sessions component
 
-1. Add a new folder called *sessions**
+1. Add a new folder called *sessions*
 1. In the same folder, create a new file called **sessions.component.ts**
 
     ```typescript
