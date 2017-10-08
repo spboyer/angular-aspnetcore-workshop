@@ -124,7 +124,7 @@ dotnet sln add FrontEnd/FrontEnd.csproj
     </ItemGroup>
     ```
     >Note: Adding CLI tools via the Visual Studio dialog or cmd line currently doesn't work, since it will add as a library package rather than a tools package.
-1. Open a command prompt and navigate to the project directory. (The directory containing the `Startup.cs` file).
+1. Open a command prompt and navigate to the project directory. (The directory containing the `.csproj` file).
 
 1. Run the following commands in the command prompt:
     ```console
