@@ -259,7 +259,7 @@ In this session, we'll add the code for the client application. Create a view fo
     ```typescript
     { path: 'sessiondetail/:id', component: SessionDetailComponent }
     ```
-### Create the Speakers Detail Page
+### Create the Speaker Detail Page
 
 > We'll add a page to show details for a given speaker
 
@@ -339,4 +339,4 @@ In this session, we'll add the code for the client application. Create a view fo
 
 ### Challenge / Bonus
 
-Add a Speakers Listing Page and link from to the `/speakerdetail` route
+Add a Speakers Listing Page and link from it to the `/speakerdetail` route
