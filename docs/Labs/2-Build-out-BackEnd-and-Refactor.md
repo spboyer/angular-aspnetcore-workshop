@@ -310,6 +310,7 @@ We're also going to take this opportunity to rename the `Models` directory in th
    using System;
    using System.Collections;
    using System.Collections.Generic;
+   using System.ComponentModel.DataAnnotations;
 
    namespace FrontEnd.Data
    {
@@ -343,19 +344,20 @@ Okay, now we need to update our `ApplicationDbContext` so Entity Framework knows
 
 1. Update `ApplicationDbContext.cs` to use the following code:
 
-   ```csharp
-	using System;
-	using System.Collections.Generic;
-	using System.Linq;
-	using System.Threading.Tasks;
-	using Microsoft.EntityFrameworkCore;
-	using Microsoft.EntityFrameworkCore.Infrastructure;
-	using Microsoft.Extensions.DependencyInjection;
+    ```csharp
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Threading.Tasks;
+    using Microsoft.EntityFrameworkCore;
+    using Microsoft.EntityFrameworkCore.Design;
+    using Microsoft.EntityFrameworkCore.Infrastructure;
+    using Microsoft.Extensions.DependencyInjection;
 
-	namespace FrontEnd.Data
-	{
-	    public class ApplicationDbContext : DbContext
-	    {
+    namespace FrontEnd.Data
+    {
+        public class ApplicationDbContext : DbContext
+        {
             public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
                 : base(options)
             {
@@ -392,15 +394,15 @@ Okay, now we need to update our `ApplicationDbContext` so Entity Framework knows
             public DbSet<Speaker> Speakers { get; set; }
 
             public DbSet<Attendee> Attendees { get; set; }
-	    }
+        }
 
-	    public class ApplicationDbContextFactory : IDesignTimeDbContextFactory<ApplicationDbContext>
+        public class ApplicationDbContextFactory : IDesignTimeDbContextFactory<ApplicationDbContext>
         {
             public ApplicationDbContext CreateDbContext(string[] args) =>
                 Program.BuildWebHost(args).Services.CreateScope().ServiceProvider.GetRequiredService<ApplicationDbContext>();
         }
-	}
-   ```
+    }
+    ```
 1. Fix errors due to the rename from `FrontEnd.Models` to `FrontEnd.Data`. You can either do this using a find / replace (replacing "FrontEnd.Models" with "FrontEnd.Data") or you can do a build and fix errors.
 1. Due to a rename in our `ApplicationDbContext` that changed from `Speaker` to `Speakers`, you'll need to replace instances of `_context.Speaker` with `_context.Speakers` in the `SpeakersController`.
 1. Ensure that the application builds now.
