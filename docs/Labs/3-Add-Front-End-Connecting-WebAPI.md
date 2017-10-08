@@ -217,7 +217,7 @@ In this session, we'll add the code for the client application. Create a view fo
       ngOnInit(): void {
 
         this.route.paramMap
-          .switchMap((params: ParamMap) => this.sessionService.getSession(+params.get('id')))
+          .switchMap((params: ParamMap) => this.sessionService.getSession(+params.get('id')!))
           .subscribe(session => this.session = session);
       }
 
@@ -290,7 +290,7 @@ In this session, we'll add the code for the client application. Create a view fo
 
       ngOnInit() {
         this.route.paramMap
-        .switchMap((params: ParamMap) => this.dataService.getSpeaker(+params.get('id')))
+        .switchMap((params: ParamMap) => this.dataService.getSpeaker(+params.get('id')!))
         .subscribe(speaker => this.speaker= speaker);
       }
 
