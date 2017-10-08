@@ -19,24 +19,24 @@ In this session, we'll add the rest of our models and controllers that expose th
 
 1. Open a command prompt and navigate to the root `ConferencePlanner` directory.
 1. Run the following command:
-   ```bash
-   dotnet new classlib -o ConferenceDTO -f netstandard2.0
-   ```
+    ```bash
+    dotnet new classlib -o ConferenceDTO -f netstandard2.0
+    ```
 1. Next we'll need to add a reference to the ConferenceDTO project from the FrontEnd project. From the command line, navigate to the FrontEnd project directory and execute the following command:
-   ```bash
-   dotnet add reference ../ConferenceDTO/ConferenceDTO.csproj
-   ```
+    ```bash
+    dotnet add reference ../ConferenceDTO/ConferenceDTO.csproj
+    ```
 
 ## Refactoring the Speaker model into the ConferenceDTO project
 
 1. Copy the `Speaker.cs` class from the *FrontEnd* application into the root of the new ConferenceDTO project, and change the namespace to `ConferenceDTO`.
 1. The data annotations references can't be resolved to a missing NuGet package. Add a reference to `System.ComponentModel.Annotations` `<PackageReference Include="System.ComponentModel.Annotations" Version="4.4.0" />`. When the package restore completes, you should see that your data annotations are now resolved.
 1. Go back to the *FrontEnd* application and modify the code in `Speaker.cs` as shown:
-   ```csharp
-   public class Speaker : ConferenceDTO.Speaker
-   {
-   }
-   ```
+    ```csharp
+    public class Speaker : ConferenceDTO.Speaker
+    {
+    }
+    ```
 1. Run the application and view the Speakers data using the Swagger UI to verify everything still works.
 
 ## Adding the remaining models to ConferenceDTO
@@ -44,125 +44,125 @@ In this session, we'll add the rest of our models and controllers that expose th
 We've got several more models to add, and unfortunately it's a little mechanical. You can copy the following classes manually, or open the completed solution which is shown at the end.
 
 1. Create an `Attendee.cs` class in the *ConferenceDTO* project with the following code:
-   ```csharp
-   using System;
-   using System.Collections.Generic;
-   using System.ComponentModel.DataAnnotations;
+    ```csharp
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
 
-   namespace ConferenceDTO
-   {
-       public class Attendee
-       {
-           public int ID { get; set; }
+    namespace ConferenceDTO
+    {
+        public class Attendee
+        {
+            public int ID { get; set; }
 
-           [Required]
-           [StringLength(200)]
-           public virtual string FirstName { get; set; }
+            [Required]
+            [StringLength(200)]
+            public virtual string FirstName { get; set; }
 
-           [Required]
-           [StringLength(200)]
-           public virtual string LastName { get; set; }
+            [Required]
+            [StringLength(200)]
+            public virtual string LastName { get; set; }
 
-           [Required]
-           [StringLength(200)]
-           public string UserName { get; set; }
+            [Required]
+            [StringLength(200)]
+            public string UserName { get; set; }
 
-           [StringLength(256)]
-           public virtual string EmailAddress { get; set; }
-       }
-   }
-   ```
+            [StringLength(256)]
+            public virtual string EmailAddress { get; set; }
+        }
+    }
+    ```
 1. Create a `Conference.cs` class with the following code:
-   ```csharp
-   using System;
-   using System.Collections.Generic;
-   using System.ComponentModel.DataAnnotations;
-   using System.Text;
+    ```csharp
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using System.Text;
 
-   namespace ConferenceDTO
-   {
-       public class Conference
-       {
-           public int ID { get; set; }
+    namespace ConferenceDTO
+    {
+        public class Conference
+        {
+            public int ID { get; set; }
 
-           [Required]
-           [StringLength(200)]
-           public string Name { get; set; }
-       }
-   }
-   ```
+            [Required]
+            [StringLength(200)]
+            public string Name { get; set; }
+        }
+    }
+    ```
 1. Create a `Session.cs` class with the following code:
-   ```csharp
-   using System;
-   using System.Collections;
-   using System.Collections.Generic;
-   using System.ComponentModel.DataAnnotations;
+    ```csharp
+    using System;
+    using System.Collections;
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
 
-   namespace ConferenceDTO
-   {
-       public class Session
-       {
-           public int ID { get; set; }
+    namespace ConferenceDTO
+    {
+        public class Session
+        {
+            public int ID { get; set; }
 
-           [Required]
-           public int ConferenceID { get; set; }
+            [Required]
+            public int ConferenceID { get; set; }
 
-           [Required]
-           [StringLength(200)]
-           public string Title { get; set; }
+            [Required]
+            [StringLength(200)]
+            public string Title { get; set; }
 
-           [StringLength(4000)]
-           public virtual string Abstract { get; set; }
+            [StringLength(4000)]
+            public virtual string Abstract { get; set; }
 
-           public virtual DateTimeOffset? StartTime { get; set; }
+            public virtual DateTimeOffset? StartTime { get; set; }
 
-           public virtual DateTimeOffset? EndTime { get; set; }
+            public virtual DateTimeOffset? EndTime { get; set; }
 
-           // Bonus points to those who can figure out why this is written this way
-           public TimeSpan Duration => EndTime?.Subtract(StartTime ?? EndTime ?? DateTime.MinValue) ?? TimeSpan.Zero;
+            // Bonus points to those who can figure out why this is written this way
+            public TimeSpan Duration => EndTime?.Subtract(StartTime ?? EndTime ?? DateTime.MinValue) ?? TimeSpan.Zero;
 
-           public int? TrackId { get; set; }
-       }
-   }
-   ```
+            public int? TrackId { get; set; }
+        }
+    }
+    ```
 1. Create a new `Tag.cs` class with the following code:
-   ```csharp
-   using System.Collections.Generic;
-   using System.ComponentModel.DataAnnotations;
+    ```csharp
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
 
-   namespace ConferenceDTO
-   {
-       public class Tag
-       {
-           public int ID { get; set; }
+    namespace ConferenceDTO
+    {
+        public class Tag
+        {
+            public int ID { get; set; }
 
-           [Required]
-           [StringLength(32)]
-           public string Name { get; set; }
-       }
-   }
-   ```
+            [Required]
+            [StringLength(32)]
+            public string Name { get; set; }
+        }
+    }
+    ```
 1. Create a new `Track.cs` class with the following code:
-   ```csharp
-   using System;
-   using System.Collections.Generic;
-   using System.ComponentModel.DataAnnotations;
+    ```csharp
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
 
-   namespace ConferenceDTO
-   {
-       public class Track
-       {
-           public int TrackID { get; set; }
+    namespace ConferenceDTO
+    {
+        public class Track
+        {
+            public int TrackID { get; set; }
 
-           [Required]
-           public int ConferenceID { get; set; }
+            [Required]
+            public int ConferenceID { get; set; }
 
-           [Required]
-           [StringLength(200)]
-           public string Name { get; set; }
-       }
-   }
-   ```
+            [Required]
+            [StringLength(200)]
+            public string Name { get; set; }
+        }
+    }
+    ```
 
 ## Creating Derived Models in the FrontEnd project
 
@@ -173,170 +173,170 @@ We're also going to take this opportunity to rename the `Models` directory in th
 1. Right-click the `Models` directory and select `Rename`, changing the name to `Data`.
 
 1. In the *FrontEnd* project, add a `ConferenceAttendee.cs` class to the `Data` directory with the following code:
-   ```csharp
-   using System;
-   using System.Collections.Generic;
-   using System.Linq;
-   using System.Threading.Tasks;
+    ```csharp
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Threading.Tasks;
 
-   namespace FrontEnd.Data
-   {
-       public class ConferenceAttendee
-       {
-           public int ConferenceID { get; set; }
-
-           public Conference Conference { get;    set; }
-
-           public int AttendeeID { get; set; }
-
-           public Attendee Attendee { get; set; }
-       }
-   }
-   ```
-1. Add a `SessionSpeaker.cs` class to the `Data` directory with the following code:
-   ```csharp
-   using System;
-   using System.Collections.Generic;
-   using System.Linq;
-   using System.Threading.Tasks;
-
-   namespace FrontEnd.Data
-   {
-       public class SessionSpeaker
-       {
-           public int SessionId { get; set; }
-
-           public Session Session { get; set; }
-
-           public int SpeakerId { get; set; }
-
-           public Speaker Speaker { get; set; }
-       }
-   }
-   ```
-1. Add a `SessionTag.cs` class to the `Data` directory with the following code:
-   ```csharp
-   using System;
-   using System.Collections.Generic;
-   using System.Linq;
-   using System.Threading.Tasks;
-
-   namespace FrontEnd.Data
-   {
-       public class SessionTag
-       {
-           public int SessionID { get; set; }
-
-           public Session Session { get; set; }
-
-           public int TagID { get; set; }
-
-           public Tag Tag { get; set; }
-       }
-   }
-   ```
-1. Add an `Attendee.cs` class with the following code:
-   ```csharp
-   using System;
-   using System.Collections.Generic;
-
-   namespace FrontEnd.Data
-   {
-       public class Attendee : ConferenceDTO.Attendee
-       {
-           public virtual ICollection<ConferenceAttendee> ConferenceAttendees { get; set; }
-
-           public virtual ICollection<Session> Sessions { get; set; }
-       }
-   }
-   ```
-1. Add a `Conference.cs` class with the following code:
-   ```csharp
-   using System;
-   using System.Collections.Generic;
-   using System.Text;
-
-   namespace FrontEnd.Data
-   {
-       public class Conference : ConferenceDTO.Conference
-       {
-           public virtual ICollection<Track> Tracks { get; set; }
-
-           public virtual ICollection<Speaker> Speakers { get; set; }
-
-           public virtual ICollection<Session> Sessions { get; set; }
-
-           public virtual ICollection<ConferenceAttendee> ConferenceAttendees { get; set; }
-       }
-   }
-   ```
-1. Add a `Session.cs` class with the following code:
-   ```csharp
-   using System;
-   using System.Collections;
-   using System.Collections.Generic;
-
-   namespace FrontEnd.Data
-   {
-       public class Session : ConferenceDTO.Session
-       {
-           public Conference Conference { get; set; }
-
-           public virtual ICollection<SessionSpeaker> SessionSpeakers { get; set; }
-
-           public Track Track { get; set; }
-
-           public virtual ICollection<SessionTag> SessionTags { get; set; }
-       }
-   }
-   ```
-1. Add a `Tag.cs` class with the following code:
-   ```csharp
-   using System;
-   using System.Collections;
-   using System.Collections.Generic;
-
-   namespace FrontEnd.Data
-   {
-        public class Tag : ConferenceDTO.Tag
+    namespace FrontEnd.Data
+    {
+        public class ConferenceAttendee
         {
+            public int ConferenceID { get; set; }
+
+            public Conference Conference { get;    set; }
+
+            public int AttendeeID { get; set; }
+
+            public Attendee Attendee { get; set; }
+        }
+    }
+    ```
+1. Add a `SessionSpeaker.cs` class to the `Data` directory with the following code:
+    ```csharp
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Threading.Tasks;
+
+    namespace FrontEnd.Data
+    {
+        public class SessionSpeaker
+        {
+            public int SessionId { get; set; }
+
+            public Session Session { get; set; }
+
+            public int SpeakerId { get; set; }
+
+            public Speaker Speaker { get; set; }
+        }
+    }
+    ```
+1. Add a `SessionTag.cs` class to the `Data` directory with the following code:
+    ```csharp
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Threading.Tasks;
+
+    namespace FrontEnd.Data
+    {
+        public class SessionTag
+        {
+            public int SessionID { get; set; }
+
+            public Session Session { get; set; }
+
+            public int TagID { get; set; }
+
+            public Tag Tag { get; set; }
+        }
+    }
+    ```
+1. Add an `Attendee.cs` class with the following code:
+    ```csharp
+    using System;
+    using System.Collections.Generic;
+
+    namespace FrontEnd.Data
+    {
+        public class Attendee : ConferenceDTO.Attendee
+        {
+            public virtual ICollection<ConferenceAttendee> ConferenceAttendees { get; set; }
+
+            public virtual ICollection<Session> Sessions { get; set; }
+        }
+    }
+    ```
+1. Add a `Conference.cs` class with the following code:
+    ```csharp
+    using System;
+    using System.Collections.Generic;
+    using System.Text;
+
+    namespace FrontEnd.Data
+    {
+        public class Conference : ConferenceDTO.Conference
+        {
+            public virtual ICollection<Track> Tracks { get; set; }
+
+            public virtual ICollection<Speaker> Speakers { get; set; }
+
+            public virtual ICollection<Session> Sessions { get; set; }
+
+            public virtual ICollection<ConferenceAttendee> ConferenceAttendees { get; set; }
+        }
+    }
+    ```
+1. Add a `Session.cs` class with the following code:
+    ```csharp
+    using System;
+    using System.Collections;
+    using System.Collections.Generic;
+
+    namespace FrontEnd.Data
+    {
+        public class Session : ConferenceDTO.Session
+        {
+            public Conference Conference { get; set; }
+
+            public virtual ICollection<SessionSpeaker> SessionSpeakers { get; set; }
+
+            public Track Track { get; set; }
+
             public virtual ICollection<SessionTag> SessionTags { get; set; }
         }
-   }
-   ```
+    }
+    ```
+1. Add a `Tag.cs` class with the following code:
+    ```csharp
+    using System;
+    using System.Collections;
+    using System.Collections.Generic;
+
+    namespace FrontEnd.Data
+    {
+            public class Tag : ConferenceDTO.Tag
+            {
+                public virtual ICollection<SessionTag> SessionTags { get; set; }
+            }
+    }
+    ```
 
 1. Add a `Track.cs` class with the following code:
-   ```csharp
-   using System;
-   using System.Collections;
-   using System.Collections.Generic;
-   using System.ComponentModel.DataAnnotations;
+    ```csharp
+    using System;
+    using System.Collections;
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
 
-   namespace FrontEnd.Data
-   {
-   public class Track : ConferenceDTO.Track
-       {
-           [Required]
-           public Conference Conference { get; set; }
+    namespace FrontEnd.Data
+    {
+    public class Track : ConferenceDTO.Track
+        {
+            [Required]
+            public Conference Conference { get; set; }
 
-           public virtual ICollection<Session> Sessions { get; set; }
-       }
-   }
-   ```
+            public virtual ICollection<Session> Sessions { get; set; }
+        }
+    }
+    ```
 
 1. Modify the `Speaker.cs` class we wrote previously to make the following two changes: update to the namespace to match our directory rename, and add a referece to the `SessionSpeaker` composite class:
-   ```csharp
-   using System;
-   using System.Collections.Generic;
+    ```csharp
+    using System;
+    using System.Collections.Generic;
 
-   namespace FrontEnd.Data
-   {
-       public class Speaker : ConferenceDTO.Speaker
-       {
-           public virtual ICollection<SessionSpeaker> SessionSpeakers { get; set; } = new List<SessionSpeaker>();
-       }
-   }
-   ```
+    namespace FrontEnd.Data
+    {
+        public class Speaker : ConferenceDTO.Speaker
+        {
+            public virtual ICollection<SessionSpeaker> SessionSpeakers { get; set; } = new List<SessionSpeaker>();
+        }
+    }
+    ```
 
 ## Update the ApplicationDbContect
 
@@ -410,10 +410,10 @@ Okay, now we need to update our `ApplicationDbContext` so Entity Framework knows
 ## Add a new database migration
 
 1. Run the following commands in the command prompt:
-   ```console
-   dotnet ef migrations add Refactor
-   dotnet ef database update
-   ```
+    ```console
+    dotnet ef migrations add Refactor
+    dotnet ef database update
+    ```
 1. Now take a deep breath and run the application and navigate to `/swagger`. You should see the Swagger UI.
 
 >Save point for above code changes is [here](/save-points/2a-Refactor-to-ConferenceDTO/ConferencePlanner)
@@ -423,29 +423,29 @@ Okay, now we need to update our `ApplicationDbContext` so Entity Framework knows
 1. Start by deleting the the attribute that reads `[Produces("application/json")]`. This attribute locks the controller's return type to JSON. By removing this attribute, we'll allow ASP.NET Core's content negotiatiation to output the response type the client requests.
 1. Change the Route attribute from `[Route("api/Speakers")]` to `[Route("api/[controller]")]`.
 1. We'll rename `_context` to `_db`, so your context will appear as shown:
-   ```csharp
-   private readonly ApplicationDbContext _db;
+    ```csharp
+    private readonly ApplicationDbContext _db;
 
-   public SpeakersController(ApplicationDbContext db)
-   {
-       _db = db;
-   }
-   ```
+    public SpeakersController(ApplicationDbContext db)
+    {
+        _db = db;
+    }
+    ```
 1. Rename the first action from `GetSpeaker()` to `GetSpeakers()`. Since the mapping is via HTTP verbs, the method name is inconsequential.
 1. Make this controller asynchronous by adding the `async` keyword and to return `Task<IActionResult>` as shown:
-   ```csharp
-   public async Task<IActionResult> GetSpeakers()
-   ```
+    ```csharp
+    public async Task<IActionResult> GetSpeakers()
+    ```
 1. Modify the query as shown below:
-   ```csharp
+    ```csharp
     var speakers = await _db.Speakers.AsNoTracking()
                             .Include(s => s.SessionSpeakers)
                                 .ThenInclude(ss => ss.Session)
                             .ToListAsync();
     return Ok(speakers);
-   ```
+    ```
 1. While the above will work, this is directly returning our model class. A better practice is to return an output model class. Create a `SpeakerResponse.cs` class in the *ConferenceDTO* project with the following code:
-   ```csharp
+    ```csharp
     using System;
     using System.Collections.Generic;
     using System.Text;
@@ -458,9 +458,9 @@ Okay, now we need to update our `ApplicationDbContext` so Entity Framework knows
             public ICollection<Session> Sessions { get; set; } = new List<Session>();
         }
     }
-   ```
+    ```
 1. Now we'll add a utility method to map between these classes. In the *FrontEnd* project, create an `Infrastructure` directory. Add a class named `EntityExtensions.cs` with the following mapping code:
-   ```csharp
+    ```csharp
     using FrontEnd.Data;
     using System;
     using System.Collections.Generic;
@@ -489,9 +489,9 @@ Okay, now we need to update our `ApplicationDbContext` so Entity Framework knows
                 };
         }
     }
-   ```
+    ```
 1. Now we can update the `GetSpeakers()` method of the *SpeakersController* so that it returns our response model. Update the last few lines so that the method reads as follows:
-   ```csharp
+    ```csharp
     [HttpGet]
     public async Task<IActionResult> GetSpeakers()
     {
@@ -503,9 +503,9 @@ Okay, now we need to update our `ApplicationDbContext` so Entity Framework knows
         var result = speakers.Select(s => s.MapSpeakerResponse());
         return Ok(result);
     }
-   ```
+    ```
 1. Update the `GetSpeaker()` method to use our mapped response models as follows:
-   ```csharp
+    ```csharp
     [HttpGet("{id:int}")]
     public async Task<IActionResult> GetSpeaker([FromRoute]int id)
     {
@@ -520,9 +520,9 @@ Okay, now we need to update our `ApplicationDbContext` so Entity Framework knows
         var result = speaker.MapSpeakerResponse();
         return Ok(result);
     }
-   ```
+    ```
 1. Update the remaining actions in the *SpeakerController* as shown below:
-   ```csharp
+    ```csharp
     [HttpPost]
     public async Task<IActionResult> CreateSpeaker([FromBody]ConferenceDTO.Speaker input)
     {
@@ -590,27 +590,27 @@ Okay, now we need to update our `ApplicationDbContext` so Entity Framework knows
 
         return NoContent();
     }
-   ```
+    ```
 
 ## Adding the remaining API Controllers
 
 1. Add the following response DTO classes from [the save point folder](/docs/Labs/save-points/ConferenceDTO)
-   - `AttendeeResponse`
-   - `SessionRespsone`
-   - `ConferenceResponse`
-   - `TrackResponse`
-   - `TagResponse`
+    - `AttendeeResponse`
+    - `SessionRespsone`
+    - `ConferenceResponse`
+    - `TrackResponse`
+    - `TagResponse`
 1. Update the `EntityExtensions` class with the extra mapping methods from [the save point folder](/docs/Labs/save-points/ConferencePlanner/FrontEnd/Infrastructure)
 1. Copy the following controllers from [the save point folder](/docs/Labs/save-points/ConferencePlanner/FrontEnd/Controllers) into the current project's `FrontEnd/Controllers` directory:
-   - `SessionsController`
-   - `ConferencesController`
-   - `AttendeesController`
+    - `SessionsController`
+    - `ConferencesController`
+    - `AttendeesController`
 
 ## Adding Seed data
 1. Copy the `MixedSeedData.cs` class from [here](/docs/Labs/save-points) into the current project's `/src/FrontEnd/Data/` directory.
 1. Add the following lines at the end of the `Configure()` method in the *FrontEnd* `Startup.cs` file to seed the database on application startup:
-   ```csharp
-   // Comment out the following line to avoid resetting the database each time
-   MixedSeedData.Seed(app.ApplicationServices);
-   ```
+    ```csharp
+    // Comment out the following line to avoid resetting the database each time
+    MixedSeedData.Seed(app.ApplicationServices);
+    ```
 1. Run the application to see the updated data via Swagger UI.
