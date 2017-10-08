@@ -189,7 +189,7 @@ In this session, we'll add the code for the client application. Create a view fo
 
 > Now that we have a home page showing all the sessions, we'll create a page to show all the details of a specific session
 
-1. Add a new folder called *sessiondetail**
+1. Add a new folder called *sessiondetail*
 1. In the same folder, create a new file called **sessiondetail.component.ts**
 
     ```typescript
