@@ -58,7 +58,7 @@ dotnet sln add FrontEnd/FrontEnd.csproj
 1. Next we'll create a new Entity Framework DbContext. Create a new `ApplicationDbContext` class in the `Models` folder using the following code:
     ```csharp
     using Microsoft.EntityFrameworkCore;
-    using Microsoft.EntityFrameworkCore.Infrastructure;
+    using Microsoft.EntityFrameworkCore.Design;
     using Microsoft.Extensions.DependencyInjection;
 
     namespace FrontEnd.Models
