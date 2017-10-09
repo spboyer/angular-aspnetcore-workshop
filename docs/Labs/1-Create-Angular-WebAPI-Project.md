@@ -175,13 +175,8 @@ Additional information on using Swashbuckle in ASP.NET Core is available in this
 
 1. Add the `Swashbuckle.AspNetCore` NuGet package.
     > This can be done from the command line using `dotnet add package Swashbuckle.AspNetCore`
-1. Register Swashbuckle as a service by replacing the line that reads `services.AddMvc();` in the the `ConfigureServices()` method in `Startup.cs`:
+1. Register Swashbuckle as a service by adding the following in the the `ConfigureServices()` method in `Startup.cs`:
     ```csharp
-    services.AddMvcCore()
-        .AddDataAnnotations()
-        .AddJsonFormatters()
-        .AddApiExplorer();
-
     services.AddSwaggerGen(options =>
         options.SwaggerDoc("v1", new Info { Title = "Conference Planner API", Version = "v1" })
     );
