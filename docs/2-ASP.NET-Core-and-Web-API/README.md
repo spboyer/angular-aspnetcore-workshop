@@ -3,9 +3,11 @@
 Now that you are setup with .NET Core, we'll do an overview of ASP.NET Core and how to build your first ASP.NET Core app. Then we'll dive into building Web APIs with ASP.NET Core.
 
 ## Prerequisites
-* [Visual Studio 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15)
-* [Visual Studio Code](https://code.visualstudio.com)
-* [.NET Core 2.0 SDK](https://www.microsoft.com/net/download/core)
+
+* [Visual Studio 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15&WT.mc_id=workshop-github-shboyer)
+* [Visual Studio Code](https://code.visualstudio.com?WT.mc_id=workshop-github-shboyer)
+* [.NET Core 2.1 SDK](https://www.microsoft.com/net/download/core?WT.mc_id=workshop-github-shboyer)
+* [Node.js (LTS)](https://nodejs.org/)
 
 ### Creating a new ASP.NET Core app
 
@@ -29,7 +31,7 @@ Now that you are setup with .NET Core, we'll do an overview of ASP.NET Core and 
 
 1. Run the app again using `dotnet run`
 1. Browse to http://localhost:5000 and hit refresh a couple of times to see the content change
-1. Check out https://docs.microsoft.com/en-us/aspnet/core/mvc/overview to learn more about building web apps with ASP.NET Core MVC and Razor Pages
+1. Check out [https://docs.microsoft.com/aspnet/core/mvc/overview](https://docs.microsoft.com/aspnet/core/mvc/overview?WT.mc_id=workshop-github-shboyer) to learn more about building web apps with ASP.NET Core MVC and Razor Pages
 
 ### Create a Web API using ASP.NET Core
 
@@ -129,6 +131,6 @@ Now that you are setup with .NET Core, we'll do an overview of ASP.NET Core and 
 1. Try deleting and updating some values using DELETE and PUT requests
 1. Try requesting or updating a value that does not exist. What response code do you get?
 1. Try specifying an ID that is not an integer. Update your routes to constrain the `id` route value to be an integer by adding `{id:int}`.
-1. Try changing the path to the Web API by changing the route on the controller. 
+1. Try changing the path to the Web API by changing the route on the controller.
 
     > The `[controller]` route token is automatically replaced with the controller name. Verify this by renaming the controller class.
