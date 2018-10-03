@@ -268,6 +268,7 @@ In this session, we'll add the code for the client application. Create a view fo
     ```typescript
     { path: 'sessiondetail/:id', component: SessionDetailComponent }
     ```
+
 ### Create the Speaker Detail Page
 
 > We'll add a page to show details for a given speaker

@@ -17,6 +17,7 @@
   ``` bash
   dotnet new angular -o MyAngularApp
   ```
+
 1. Change directories (`cd MyAngularApp`) into the new application directory and run `npm install`.
 1. View the application code by typing `code .` to launch Visual Studio Code in the current directory.
 1. Build the application using `dotnet build`
@@ -28,6 +29,7 @@
   ``` bash
   set ASPNETCORE_ENVIRONMENT=Development
   ```
+
 > **Note**: On OSX this is done using `export ASPNETCORE_ENVIRONMENT=Development`
 
 1. Run the application using the `dotnet watch` tool:
@@ -35,6 +37,7 @@
   ``` bash
   dotnet watch run
   ```
+
 1. Navigate to `http://localhost:5000` to view the application.
 
 > **Note**: Leave the application running and the browser window open for the remainder of the lab.
@@ -53,6 +56,7 @@
     }
   }
   ```
+
 1. Edit the Counter template (`\ClientApp\components\counter\counter.html`) to change the H2 heading text.
 1. Observe that the application has refreshed with your changes. View the console output to see the debug messages printed out during the updates.
 

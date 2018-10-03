@@ -10,8 +10,9 @@ In this session, we'll add the rest of our models and controllers that expose th
 
 1. If using Visual Studio, right-click on the Solution and select *Add* / *New Project...*.
 
-1. Select *.NET Standard* from the project types on the left and select the *Class Libarary (.NET Standard)* template. Name the project ConferenceDTO and press OK.
-![](images/create-dto-project.png)
+1. Select *.NET Standard* from the project types on the left and select the *Class Library (.NET Standard)* template. Name the project ConferenceDTO and press OK.
+
+![create the DTO project](images/create-dto-project.png)
 
 1. Delete the generated `Class1.cs` file from this new project.
 
@@ -607,6 +608,7 @@ Okay, now we need to update our `ApplicationDbContext` so Entity Framework knows
     - `AttendeesController`
 
 ## Adding Seed data
+
 1. Copy the `MixedSeedData.cs` class from [here](/docs/Labs/save-points) into the current project's `/src/FrontEnd/Data/` directory.
 1. Add the following lines at the end of the `Configure()` method in the *FrontEnd* `Startup.cs` file to seed the database on application startup:
     ```csharp

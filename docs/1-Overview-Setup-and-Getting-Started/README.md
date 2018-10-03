@@ -3,10 +3,11 @@
 We'll get started with a quick overview of .NET Core: what it is, why you should care, and how to get set up to start using it.
 
 ## Prerequisites
-* [Visual Studio 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15)
-* [Visual Studio Code](https://code.visualstudio.com)
-* [.NET Core 2.0 SDK](https://www.microsoft.com/net/download/core)
-* [Node.js (LTS)]()https://nodejs.org/
+
+* [Visual Studio 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15&WT.mc_id=workshop-github-shboyer)
+* [Visual Studio Code](https://code.visualstudio.com?WT.mc_id=workshop-github-shboyer)
+* [.NET Core 2.1 SDK](https://www.microsoft.com/net/download/core?WT.mc_id=workshop-github-shboyer)
+* [Node.js (LTS)](https://nodejs.org/)
 
 ## Overview Presentation
 
@@ -24,11 +25,12 @@ We'll get started with a quick overview of .NET Core: what it is, why you should
 
 ### Creating a new .NET Core application using Visual Studio 2017
 
-1. Follow the steps in the [Building a complete .NET Core solution on Windows, using Visual Studio 2017](https://docs.microsoft.com/en-us/dotnet/articles/core/tutorials/using-on-windows-full-solution) tutorial.
-    > Note: If you'd like simpler one to get started, you can first complete the [Building a C# Hello World application with .NET Core in Visual Studio 2017](https://docs.microsoft.com/en-us/dotnet/articles/csharp/getting-started/with-visual-studio) tutorial.
+1. Follow the steps in the [Building a complete .NET Core solution on Windows, using Visual Studio 2017](https://docs.microsoft.com/dotnet/core/tutorials/using-on-windows-full-solution?WT.mc_id=workshop-github-shboyer) tutorial.
+    > Note: If you'd like simpler one to get started, you can first complete the [Building a C# Hello World application with .NET Core in Visual Studio 2017](https://docs.microsoft.com/dotnet/articles/csharp/getting-started/with-visual-studio?WT.mc_id=workshop-github-shboyer) tutorial.
 
 ### Extra Credit: Create a Class Library and Xunit test solution
-```
+
+```console
 dotnet new            ::Note: this lists available options
 dotnet new sln -o MyApp
 cd MyApp

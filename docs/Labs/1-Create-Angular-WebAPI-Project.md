@@ -25,8 +25,8 @@ dotnet sln add FrontEnd/FrontEnd.csproj
 ## Option #2: Using Visual Studio
 
 1. Create a new project using File / New / ASP.NET Core Web Application. Select the Angular template, No Auth, no Docker support.
-   ![](images/new-project.png)
-   ![](images/new-angular-project.png)
+   ![new project](images/new-project.png)
+   ![new angular project](images/new-angular-project.png)
 
 1. Add a new `Models` folder to the root of the application.
 1. Add a new `Speaker` class using the following code:
@@ -56,6 +56,7 @@ dotnet sln add FrontEnd/FrontEnd.csproj
     }
     ```
 1. Next we'll create a new Entity Framework DbContext. Create a new `ApplicationDbContext` class in the `Models` folder using the following code:
+
     ```csharp
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Design;
@@ -116,14 +117,7 @@ dotnet sln add FrontEnd/FrontEnd.csproj
     >This code registers the `ApplicationDbContext` service so it can be injected into controllers. Additionally, it configures operating system specific database technologies and connection strings.
 
 ## Configuring EF Migrations
-1. Add the `Microsoft.EntityFrameworkCore.Tools.DotNet` NuGet package. Edit the project file and add it to the tools reference `<ItemGroup>`:
-    ```xml
-    <ItemGroup>
-      <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
-      <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.0" />
-    </ItemGroup>
-    ```
-    >Note: Adding CLI tools via the Visual Studio dialog or cmd line currently doesn't work, since it will add as a library package rather than a tools package.
+
 1. Open a command prompt and navigate to the project directory. (The directory containing the `.csproj` file).
 
 1. Run the following commands in the command prompt:
@@ -145,14 +139,14 @@ First, open the `Controllers` folder and take a quick look at the `SampleDataCon
 1. Right-click the `Controllers` folder and select Add/Controller. You'll be shown a prompt for setting up Scaffolding. Select "Minimal Dependencies".
 1. Again, right-click the `Controllers` folder and select Add/Controller. Select "API Controller with Actions, Using EF".
 1. In the dialog, select the `Speaker` model for the Model Class, `ApplicationDbContext` for the "Data Context Class" and click the `Add` button.
-    ![](images/scaffold-api-controller.png)
+    ![scaffold api controller](images/scaffold-api-controller.png)
 
 ### Using the cmd line
 
 1. Edit the project file to add a reference to the `Microsoft.VisualStudio.Web.CodeGeneration.Design` package:
     ```xml
     <ItemGroup>
-        <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
+        <PackageReference Include="Microsoft.AspNetCore.App" />
         <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.0" />
     </ItemGroup>
     ```
@@ -171,7 +165,7 @@ In this section, we'll be adding documentation to our API using the Swashbuckle 
 
 Swagger (now called the OpenAPI specification) is a machine readable representation of a RESTful API that enables support for interactive documentation, client SDK generation and discoverability.
 
-Additional information on using Swashbuckle in ASP.NET Core is available in this tutorial: [ASP.NET Web API Help Pages using Swagger](https://docs.microsoft.com/en-us/aspnet/core/tutorials/web-api-help-pages-using-swagger)
+Additional information on using Swashbuckle in ASP.NET Core is available in this tutorial: [ASP.NET Web API Help Pages using Swagger](https://docs.microsoft.com/en-us/aspnet/core/tutorials/web-api-help-pages-using-swagger?WT.mc_id=workshop-github-shboyer)
 
 1. Add the `Swashbuckle.AspNetCore` NuGet package.
     > This can be done from the command line using `dotnet add package Swashbuckle.AspNetCore`
@@ -191,10 +185,10 @@ Additional information on using Swashbuckle in ASP.NET Core is available in this
     ```
 1. Run the application (F5 in Visual Studio or `dotnet run` from console).
 1. Browse to the Swagger UI at `http://localhost:<random_port>/swagger`.
-   ![](images/swagger-speakers.png)
+   ![swagger for speakers](images/swagger-speakers.png)
 1. First, click on the *GET* button in *SampleData* section and then click *Try it out!*. You'll see the weather forecast data from the `SampleDataController`.
 1. In the *Speakers* section, click on the *GET* button. You'll see there are not speakers returned. Let's add one!
 1. In the *Speakers* section, click on the *POST* button. Referencing the example on the right, fill in a speaker request. Leave the `ID` blank, that will be filled in by the database.
-    ![](images/swagger-create-speaker.png)
+    ![create speaker](images/swagger-create-speaker.png)
 1. When you click the *Try it out!* button, you should see a success response from the server. Now, clicking the *GET* button above should show your newly added speaker.
-    ![](images/swagger-create-results.png)
+    ![swagger results](images/swagger-create-results.png)
