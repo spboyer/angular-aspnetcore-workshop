@@ -17,7 +17,7 @@ From     | To       | Session
 ## Where to go next
 
 * Get started with .NET Core - https://dot.net/core
-* Get Visual Studio for your platform of choice - https://visualstudio.com
+* Get Visual Studio for your platform of choice - https://visualstudio.com/?WT.mc_id=angularaspnetcoreworkshop-github-shboyer
 * .NET Core [docs](https://docs.microsoft.com/dotnet/docs?WT.mc_id=workshop-github-shboyer) | [code](https://github.com/dotnet/home)
 * ASP.NET Core [docs](https://docs.microsoft.com/aspnet/core?WT.mc_id=workshop-github-shboyer) | [code](https://github.com/aspnet/home)
 * EF Core [docs](https://docs.microsoft.com/ef/core?WT.mc_id=workshop-github-shboyer) | [code](https://github.com/aspnet/entityframeworkcore)
