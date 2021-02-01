@@ -17,9 +17,9 @@ From     | To       | Session
 ## Where to go next
 
 * Get started with .NET Core - https://dot.net/core
-* Get Visual Studio for your platform of choice - https://visualstudio.com
-* .NET Core [docs](https://docs.microsoft.com/dotnet/docs?WT.mc_id=workshop-github-shboyer) | [code](https://github.com/dotnet/home)
-* ASP.NET Core [docs](https://docs.microsoft.com/aspnet/core?WT.mc_id=workshop-github-shboyer) | [code](https://github.com/aspnet/home)
-* EF Core [docs](https://docs.microsoft.com/ef/core?WT.mc_id=workshop-github-shboyer) | [code](https://github.com/aspnet/entityframeworkcore)
+* Get Visual Studio for your platform of choice - https://visualstudio.com/?WT.mc_id=dotnet-0000-shboyer
+* .NET Core [docs](https://docs.microsoft.com/dotnet/docs?WT.mc_id=dotnet-0000-shboyer) | [code](https://github.com/dotnet/home)
+* ASP.NET Core [docs](https://docs.microsoft.com/aspnet/core?WT.mc_id=dotnet-0000-shboyer) | [code](https://github.com/aspnet/home)
+* EF Core [docs](https://docs.microsoft.com/ef/core?WT.mc_id=dotnet-0000-shboyer) | [code](https://github.com/aspnet/entityframeworkcore)
 * ASP.NET Core JavaScript Services [docs](https://aka.ms/spaservicesdocs) | [code](https://github.com/aspnet/javascriptservices)
 * [Microservices e-book](http://aka.ms/MicroservicesEbook)
